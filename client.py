@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Configuration
-KB_API_URL = os.getenv("KB_API_URL", "http://localhost:8000")
+KB_API_URL = os.getenv("KB_API_URL", "http://localhost:5050")
 KB_USERNAME = os.getenv("KB_USERNAME")
 KB_PASSWORD = os.getenv("KB_PASSWORD")
 

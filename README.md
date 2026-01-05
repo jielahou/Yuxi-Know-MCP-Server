@@ -52,7 +52,7 @@ docker build -t yuki-mcp-server .
 2. Run the container:
 ```bash
 docker run -d -p 8000:8000 \
-  -e KB_API_URL=http://your-kb-api-host:8000 \
+  -e KB_API_URL=http://your-yuki-know-api-host:5050 \
   -e KB_USERNAME=your_username \
   -e KB_PASSWORD=your_password \
   -e MCP_AUTH_TOKEN=your_secure_token \
