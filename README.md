@@ -20,7 +20,7 @@ A Model Context Protocol (MCP) server that enables AI assistants to query your k
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/yuxi-mcp.git
+git clone https://github.com/jielahou/yuxi-mcp.git
 cd yuxi-mcp
 ```
 
