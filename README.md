@@ -20,8 +20,8 @@ A Model Context Protocol (MCP) server that enables AI assistants to query your k
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/jielahou/yuxi-mcp.git
-cd yuxi-mcp
+git clone https://github.com/jielahou/Yuxi-Know-MCP-Server
+cd Yuxi-Know-MCP-Server
 ```
 
 2. Create a virtual environment and install dependencies:
@@ -46,7 +46,7 @@ python server_sse.py
 
 1. Build the Docker image:
 ```bash
-docker build -t yuxi-mcp .
+docker build -t Yuxi-Know-MCP-Server .
 ```
 
 2. Run the container:
@@ -56,8 +56,8 @@ docker run -d -p 8000:8000 \
   -e KB_USERNAME=your_username \
   -e KB_PASSWORD=your_password \
   -e MCP_AUTH_TOKEN=your_secure_token \
-  --name yuxi-mcp \
-  yuxi-mcp
+  --name Yuxi-Know-MCP-Server \
+  Yuxi-Know-MCP-Server
 ```
 
 ## Configuration
