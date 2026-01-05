@@ -112,15 +112,19 @@ Queries a specific knowledge base.
 
 ## Client Configuration
 
-### Claude Desktop
+### Claude Code
 
-Add to your `claude_desktop_config.json`:
+Add to your `claude_desktop_config.json`, or `.mcp.json` in your project root directory:
 
 ```json
 {
   "mcpServers": {
-    "yuxi-kb": {
-      "url": "http://localhost:8000/sse?token=your_secure_token"
+    "knowledge-base-mcp": {
+      "type": "sse",
+      "url": "http://localhost:8000/sse",
+      "headers": {
+        "Authorization": "Bearer your_secure_token"
+      }
     }
   }
 }
