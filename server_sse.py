@@ -4,7 +4,7 @@ from mcp.server import Server
 from mcp.server.sse import SseServerTransport
 from starlette.applications import Starlette
 from starlette.middleware import Middleware
-from starlette.middleware.base import BaseHTTPMiddleware
+from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import Response, JSONResponse
 from starlette.requests import Request
 from starlette.routing import Route, Mount
@@ -140,13 +140,35 @@ async def handle_messages(request: Request):
     # Note: sse.handle_post_message already sends the response,
     # so we don't return anything here to avoid double response
 
-# Starlette App
+# Health check endpoint for debugging
+async def health_check(request: Request):
+    """Health check endpoint to verify server is running."""
+    from client import KB_API_URL, KB_USERNAME
+    return JSONResponse({
+        "status": "ok",
+        "kb_api_url": KB_API_URL,
+        "kb_username": KB_USERNAME[:3] + "***" if KB_USERNAME else None,
+        "auth_enabled": bool(MCP_AUTH_TOKEN),
+    })
+
+# Starlette App with CORS middleware
 app = Starlette(
     debug=False,
     routes=[
+        Route("/", endpoint=health_check, methods=["GET"]),
+        Route("/health", endpoint=health_check, methods=["GET"]),
         Route("/sse", endpoint=handle_sse, methods=["GET"]),
         Route("/messages/", endpoint=handle_messages, methods=["POST"]),
     ],
+    middleware=[
+        Middleware(
+            CORSMiddleware,
+            allow_origins=["*"],
+            allow_credentials=True,
+            allow_methods=["*"],
+            allow_headers=["*"],
+        )
+    ]
 )
 
 if __name__ == "__main__":
