@@ -46,7 +46,7 @@ python server_sse.py
 
 1. Build the Docker image:
 ```bash
-docker build -t Yuxi-Know-MCP-Server .
+docker build -t yuki-mcp-server .
 ```
 
 2. Run the container:
@@ -56,8 +56,8 @@ docker run -d -p 8000:8000 \
   -e KB_USERNAME=your_username \
   -e KB_PASSWORD=your_password \
   -e MCP_AUTH_TOKEN=your_secure_token \
-  --name Yuxi-Know-MCP-Server \
-  Yuxi-Know-MCP-Server
+  --name yuki-mcp-server \
+  yuki-mcp-server
 ```
 
 ## Configuration
